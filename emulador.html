@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Gran Turismo 1 - Emulador PS1</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+    <style>
+        body {
+            background: #080810;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            padding: 20px;
+            margin: 0;
+        }
+        .emu-container {
+            width: 100%;
+            max-width: 850px;
+            background: #000;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(229,9,20,0.3);
+            border: 1px solid #e50914;
+        }
+        #game {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background: #000;
+        }
+        .emu-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(0,0,0,0.85);
+            border-top: 1px solid rgba(229,9,20,0.3);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .back-btn {
+            background: #e50914;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+        }
+        .back-btn:hover {
+            background: #b20710;
+            transform: scale(1.02);
+        }
+        .info {
+            color: #aaa;
+            font-size: 0.7rem;
+            text-align: center;
+            margin-top: 15px;
+        }
+        @media (max-width: 700px) {
+            .emu-container { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="emu-container">
+    <div id="game"></div>
+    <div class="emu-controls">
+        <a href="https://o-seu-site.amen.pt/index.php" class="back-btn"><i class="fas fa-arrow-left"></i> VOLTAR AO MENU</a>
+        <div style="color:#e50914; font-size:0.75rem;">
+            <i class="fas fa-gamepad"></i> Setas / WASD | Enter / X / Z
+        </div>
+    </div>
+</div>
+<div class="info">
+    <i class="fas fa-info-circle"></i> Gran Turismo 1 © 1997 Sony Interactive Entertainment.<br>
+    Emulador a correr no browser. Necessita de BIOS e ROM legalmente adquiridas.
+</div>
+
+<!-- CONFIGURAÇÃO DO EMULADOR (via CDN oficial) -->
+<script type='text/javascript'>
+    EJS_player = '#game';
+    EJS_core = 'psx';
+    // 👇 Aponta para o CDN, evitando alojar ficheiros no seu servidor
+    EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
+    // 👇 Substitua pelo link real da sua ROM (alojada no Google Drive via DriveToWeb)
+    EJS_gameUrl = 'https://allancoding-website-files.on.drv.tw/roms/Gran_Turismo_1.bin';
+    // 👇 Link da BIOS (coloque o ficheiro na mesma pasta do Google Drive)
+    EJS_biosUrl = 'https://allancoding-website-files.on.drv.tw/bios/scph1001.bin';
+    EJS_autoplay = false;
+</script>
+<script src='https://cdn.emulatorjs.org/stable/data/loader.js'></script>
+</body>
+</html>
